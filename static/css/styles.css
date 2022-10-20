@@ -1,0 +1,58 @@
+*, *::before, *::after{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgba(0, 0, 0, .8);
+}
+
+html{
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body,html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 400px; 
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, .15);
+    padding: 2.5rem 0 5rem 0;
+    border-radius: .5rem;
+}
+form h2{
+    padding-bottom: 2.5rem;  
+    font-size: 2rem; 
+}
+form input{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    outline: none;
+    margin-bottom: 1rem;
+    padding: .75rem 1rem;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .4rem;
+}
+
+form input[type=submit]{
+    width: 50%;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: dodgerblue;
+    color: white;
+}
+
+form > div a{
+    text-decoration: none;
+    color: dodgerblue;
+    display: inline-block;
+    padding:.5rem;
+}

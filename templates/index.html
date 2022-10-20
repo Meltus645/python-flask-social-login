@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python-Flask Social Login</title>
+    <link rel="stylesheet" href="{{url_for('static', filename ='css/styles.css')}}">
+</head>
+<body>
+    <form method="post" action="{{url_for('auth.login')}}">
+        <h2>Login Here</h2>
+        <div> 
+            <input type="email" name ="email" id ="email" placeholder="enter email"/>
+            <input type="password" name ="password" id ="password" placeholder="enter password"/>
+            <input type="submit" value="Login" />
+        </div> 
+        Or Sign In Using 
+        <div>
+            <a href="{{ url_for('auth.login', provider ='facebook' ) }}">Facebook</a>
+            <a href="{{ url_for('auth.login', provider ='twitter' ) }}">Twitter</a> 
+            <a href="{{ url_for('auth.login', provider ='google' ) }}">Google</a>
+            <a href="{{ url_for('auth.login', provider ='github' ) }}">Github</a> 
+        </div>
+    </form> 
+</body>
+</html>
