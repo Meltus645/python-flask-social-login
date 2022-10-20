@@ -40,7 +40,7 @@ def github_auth_service():
 
 def google_auth_callback_service():
     code =request.args.get('code') 
-    client, configs =google_web_client(['authorization_endpoint', 'userinfo_endpoint'])  
+    client, configs =google_web_client(['token_endpoint', 'userinfo_endpoint'])  
     token_endpoint =configs.get('token_endpoint') 
     token_url, headers, body =client.prepare_token_request(
         token_url=token_endpoint,
