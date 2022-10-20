@@ -2,4 +2,4 @@ from app import createapp
 
 app =createapp()
 
-if __name__ == '__main__': app.run(ssl_context ='adhoc')
+if __name__ == '__main__': app.run()
