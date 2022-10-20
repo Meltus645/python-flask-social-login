@@ -43,20 +43,25 @@ def google_auth_callback_service():
     client, configs =google_web_client(['authorization_endpoint', 'userinfo_endpoint'])  
     token_endpoint =configs.get('token_endpoint')
     print(f'code: {code}, request_url: {request.url}, redirect_url: {request.base_url}')
-    token_url, headers, body =client.prepare_token_request(
-        token_url=token_endpoint,
-        authorization_response=request.url,
-        redirect_url=request.base_url,
-        code =code
-    )
+    return {
+        'code': code,
+        'request_url': request.url,
+        'redirect_url': request.base_url
+    }
+    # token_url, headers, body =client.prepare_token_request(
+    #     token_url=token_endpoint,
+    #     authorization_response=request.url,
+    #     redirect_url=request.base_url,
+    #     code =code
+    # )
 
-    token_response =requests.post(
-        token_url, headers =headers, data =body,
-        auth =(os.getenv('GOOGLE_CLIENT_ID'), os.getenv('GOOGLE_CLIENT_SECRET'))
-    )
+    # token_response =requests.post(
+    #     token_url, headers =headers, data =body,
+    #     auth =(os.getenv('GOOGLE_CLIENT_ID'), os.getenv('GOOGLE_CLIENT_SECRET'))
+    # )
 
-    client.parse_request_body_response(json.dumps(token_response.json()))
-    userinfo_endpoint = configs.get('userinfo_endpoint')
-    uri, headers, body = client.add_token(userinfo_endpoint)
-    userinfo_response = requests.get(uri, headers=headers, data=body) 
-    return userinfo_response.json()
+    # client.parse_request_body_response(json.dumps(token_response.json()))
+    # userinfo_endpoint = configs.get('userinfo_endpoint')
+    # uri, headers, body = client.add_token(userinfo_endpoint)
+    # userinfo_response = requests.get(uri, headers=headers, data=body) 
+    # return userinfo_response.json()
